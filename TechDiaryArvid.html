@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title></title>
-<!-- 2017-05-04 tor 23:46 -->
+<!-- 2017-05-28 sön 18:26 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -380,10 +380,38 @@ Första fälttestet på Niagara. Vi mätte upp en rektangulär bana på golvet i
 </div>
 </div>
 <div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2017-04-20</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Arbetade med att fastställa koordinater utifrån avstånd till kända punkter. Ofta kallas det triangulering, men om det är sträckor man mätt upp kallas det trilaterering. Det krävs tre kända punkter, härav trilaterering, men om man har två kända punkter får man två möjliga positioner, och det är oftast tillräckligt. Med två avstånd kallas detta bilaterering. Vi har två saker i projektet som behöver detta
+</p>
+<ul class="org-ul">
+<li>Ultraljudslösningen bygger på detta
+</li>
+<li>När vi mäter upp en bana och lägger ut objekt vill vi veta vilka koordinater dessa har. Enklast är att mäta avstånd från två av våra hörn och bilaterera.
+</li>
+</ul>
+<p>
+Min härledning av formeln för bilaterering är denna, <a href="./bilder/Bilateration.jpg">länk till bild</a>. a och c är i härledningen x- och ykoordinater. Jag har även skrivit en funktion i filen koordmapping.py:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">bilateration med tv&#229; k&#228;nda punkter, en i origo och den andra p&#229; y-axeln med avst&#229;nd dist till origo. </span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">r1 &#228;r ok&#228;nda punktens avst&#229;nd till origo, r2 avst&#229;nd till andra punkten. </span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Returnerarpositivt x-v&#228;rde, &#228;ven -x &#228;r giltig l&#246;sning</span>
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">bilat</span><span style="color: #4f97d7;">(</span>dist, r1, r2<span style="color: #4f97d7;">)</span>:
+  <span style="color: #7590db;">y</span> = <span style="color: #4f97d7;">(</span>r1**<span style="color: #a45bad;">2</span> - r2**<span style="color: #a45bad;">2</span> + dist**<span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span> / <span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2</span> * dist<span style="color: #4f97d7;">)</span>
+  <span style="color: #7590db;">x</span> = math.sqrt<span style="color: #4f97d7;">(</span>r1**<span style="color: #a45bad;">2</span> - y**<span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
 <h3 id="sec-">2017-04-22</h3>
 <div class="outline-text-3" id="text-">
 <p>
-Egentligen inte en arbetsdag, men jag byggde en ställning eller rigg för att på ett säkert sätt kunna ha den kamera vi ska använda en bit ut från kanten två våningar upp på Niagara. Detta för att den ska komma så nära mitt över banan som möjligt. Konstruktionen är i träreglar med säkerhetslina
+Egentligen inte en arbetsdag, men jag byggde en ställning eller rigg för att på ett säkert sätt kunna ha den kamera vi ska använda en bit ut från kanten två våningar upp på Niagara. Detta för att den ska komma så nära mitt över banan som möjligt. Konstruktionen är i träreglar med säkerhetslina 
 </p>
 </div>
 </div>
@@ -468,6 +496,14 @@ Homography&#x2026;
 <div class="outline-text-3" id="text-">
 <p>
 Vad hände idag?
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2017-05-05</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Idag hade Gustaf och Anton en liten konflikt som jag försökte hjälpa dem att lösa. Jag dokumenterade det hela på <a href="https://youtu.be/cvYUlMf6RG4">på youtube</a>
 </p>
 </div>
 </div>
