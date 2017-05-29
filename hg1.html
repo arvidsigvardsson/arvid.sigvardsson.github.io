@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title></title>
-<!-- 2017-05-28 sön 22:27 -->
+<!-- 2017-05-29 mån 03:37 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -189,6 +189,32 @@ $(function() {
     $('.bs-docs-sidebar').affix();
 });
 </script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 <body>
 <div id="content" class="container">
@@ -197,10 +223,58 @@ $(function() {
 <h2 id="sec-">Lärandemål huvudgrupp 1</h2>
 <div class="outline-text-2" id="text-">
 </div><div id="outline-container-sec-" class="outline-3">
-<h3 id="sec-">2017-05-14</h3>
+<h3 id="sec-">2017-04-20 (Lärandemål om relevant kunskap i matematik)</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Arbetade med att fastställa koordinater utifrån avstånd till kända punkter. Ofta kallas det triangulering, men om det är sträckor man mätt upp kallas det trilaterering. Det krävs tre kända punkter, härav trilaterering, men om man har två kända punkter får man två möjliga positioner, och det är oftast tillräckligt. Med två avstånd kallas detta bilaterering. Vi har två saker i projektet som behöver detta
+</p>
+<ul class="org-ul">
+<li>Ultraljudslösningen bygger på detta
+</li>
+<li>När vi mäter upp en bana och lägger ut objekt vill vi veta vilka koordinater dessa har. Enklast är att mäta avstånd från två av våra hörn och bilaterera.
+</li>
+</ul>
+<p>
+Min härledning av formeln för bilaterering är denna, <a href="./bilder/Bilateration.jpg">länk till bild</a>. a och c är i härledningen x- och ykoordinater. Jag har även skrivit en funktion i filen koordmapping.py:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">bilateration med tv&#229; k&#228;nda punkter, en i origo och den andra p&#229; y-axeln med avst&#229;nd dist till origo. </span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">r1 &#228;r ok&#228;nda punktens avst&#229;nd till origo, r2 avst&#229;nd till andra punkten. </span>
+<span style="color: #2aa1ae; background-color: #292e34;"># </span><span style="color: #2aa1ae; background-color: #292e34;">Returnerarpositivt x-v&#228;rde, &#228;ven -x &#228;r giltig l&#246;sning</span>
+<span style="color: #4f97d7; font-weight: bold;">def</span> <span style="color: #bc6ec5; font-weight: bold;">bilat</span><span style="color: #4f97d7;">(</span>dist, r1, r2<span style="color: #4f97d7;">)</span>:
+  <span style="color: #7590db;">y</span> = <span style="color: #4f97d7;">(</span>r1**<span style="color: #a45bad;">2</span> - r2**<span style="color: #a45bad;">2</span> + dist**<span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span> / <span style="color: #4f97d7;">(</span><span style="color: #a45bad;">2</span> * dist<span style="color: #4f97d7;">)</span>
+  <span style="color: #7590db;">x</span> = math.sqrt<span style="color: #4f97d7;">(</span>r1**<span style="color: #a45bad;">2</span> - y**<span style="color: #a45bad;">2</span><span style="color: #4f97d7;">)</span>
+  <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7;">(</span>x, y<span style="color: #4f97d7;">)</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Avsnittet Koordinatmappning under Genomförande i rapporten (Lärandemål om relevant kunskap i matematik)</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Avsnittet om Koordinatmappning som jag skrivit i rapporten ger prov på hur jag använt matematiska modeller för att modellera både transformationen mellan pixelkoordinater och världskoordinater, samt matematiskt modellerat det optiska felet i kameran och kompenserat för detta.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2017-05-14 (Lärandemål om UML)</h3>
 <div class="outline-text-3" id="text-">
 <p>
 Jag har gjort två diagram till rapporten som beskriver koordinatmappningen. Det ena är en systembeskrivning, och illustrerar vilka parametrar som krävs för koordinatmappningen. Det andra är ett blockschema som tydligt visar hur programmet kör och vilka steg det tar. Finns i rapporten under Resultat. Länk till <a href="./bilder/Systembeskrivning_coordmapping.png">systembeskrivning</a> och <a href="./bilder/coordmapping_blockschema.png">blockschema</a>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2017-05-18 (Lärandemål om relevant kunskap i matematik)</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Gustaf har tagit fram en kompensation utifrån mätdata från testningen. Vi har kunnat konstatera att det uppstår ett fel längs respektive x- och y-axel, som växer med avståndet från origo. När vi testade med Gustafs kompensation överkompenserade den generellt felet. Jag fick härom dagen en intuition om varför det blir så, och idag översatte jag den intuitionen i formler, och lyckades övertyga Gustaf om att det är en sund matematisk modell. Teorin är följande: Gustafs kompensation kompenserar samtidigt för fel i både x- och y-axel, som om det är två oberoende fel. I min modell av felet beror felet snarare enbart på det diagonala avståndet från origo, och det visar sig något olika i x- och y-led. Det innebär att vi istället för att kompensera i båda led ska göra en kompensation där vi viktar om vi ska kompensera enligt data från x-led eller y-led beroende på hur långt vi befinner oss från origo. Formeln för denna modell är följande för xkoordinaten (något förenklad):
+</p>
+
+<p>
+\[x_{kompensation} = \frac{x_{fel} \cdot x + y_{fel} \cdot y}{x + y}, x + y \neq 0 \]
 </p>
 </div>
 </div>

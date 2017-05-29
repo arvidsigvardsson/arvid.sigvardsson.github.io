@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title></title>
-<!-- 2017-05-29 mån 00:14 -->
+<!-- 2017-05-29 mån 03:35 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -189,6 +189,32 @@ $(function() {
     $('.bs-docs-sidebar').affix();
 });
 </script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 <body>
 <div id="content" class="container">
@@ -478,8 +504,6 @@ Föreläsning om testning på förmiddagen. På eftermiddagen hade vi gruppsemin
 Vi genererade först signal från signalgenerator och använde transistorer för att switcha på de olika kanalerna (alltså fyrarna). Vid mätning med oscilloskop fick vi inte förväntat resultat. Vi diskuterade med Tommy, och han föreslog att vi inte behövde en sinusvåg och alltså inte en funktionsgenerator, utan en fyrkantsvåg genererat av digitalpinnar på utvecklingskortet borde vara bättre. Vi inledde arbetet med detta, men blev inte färdiga.
 </p>
 </li>
-<li>Något annat som kom upp under dagen var begreppet homografi eller homography. Jag gjorde en egensnickrad koordinatmappning till vår opencvlösning, som vid första testet gav okej resultat på en del ställen av banan, men sämre under andra. Jag hittade ett bra namn på det nu, homografi alltså, och därmed blev det lätt att hitta bra källor, t ex <a href="http://www.learnopencv.com/homography-examples-using-opencv-python-c/">denna</a> eller <a href="https://www.cs.ubc.ca/grads/resources/thesis/May09/Dubrofsky_Elan.pdf">denna</a>.
-</li>
 </ul>
 </div>
 </div>
@@ -487,15 +511,15 @@ Vi genererade först signal från signalgenerator och använde transistorer för
 <h3 id="sec-">2017-05-03</h3>
 <div class="outline-text-3" id="text-">
 <p>
-Homography&#x2026;
+Idag har jag sökt information om konceptet homografi. Jag gjorde en egensnickrad koordinatmappning till vår opencvlösning, som vid första testet gav okej resultat på en del ställen av banan, men sämre under andra. Jag hittade ett bra namn på det nu, homografi alltså, och därmed blev det lätt att hitta bra källor, t ex <a href="http://www.learnopencv.com/homography-examples-using-opencv-python-c/">denna</a> eller <a href="https://www.cs.ubc.ca/grads/resources/thesis/May09/Dubrofsky_Elan.pdf">denna</a>.
 </p>
-</div>
-</div>
-<div id="outline-container-sec-" class="outline-3">
-<h3 id="sec-">2017-05-04</h3>
-<div class="outline-text-3" id="text-">
+
 <p>
-Vad hände idag?
+Problemet är detta: jag vill hitta en transformation, alltså en matris, som mappar om en pixelkoordinat från en digital bild till en koordinat i verkliga världen som är relativ till någon form av bana eller koordinatsystem vi ritat upp på golvet i Niagara. <a href="./Koordinatmappning.html">Min egna metod</a> gör detta, men jag anar att den inte gör det optimalt. Däremot verkar iden om en matris som uppnår detta vara allmänt vedertagen. En av de ovan länkarna är en forskningsartikel med härledning av formeln för en homografimatris, den andra är en praktisk guide om hur detta genomförs i opencv-biblioteket.
+</p>
+
+<p>
+Resultatet av denna research är min implementation i funktionen calibrate i filen coordmapping.py i vårt kodrepo.
 </p>
 </div>
 </div>
@@ -503,7 +527,7 @@ Vad hände idag?
 <h3 id="sec-">2017-05-05</h3>
 <div class="outline-text-3" id="text-">
 <p>
-Idag hade Gustaf och Anton en liten konflikt som jag försökte hjälpa dem att lösa. Jag dokumenterade det hela på <a href="https://youtu.be/cvYUlMf6RG4">på youtube</a>
+Vi har god stämning i gruppen, men idag uppstod en liten konflikt. Gustaf och Anton hade olika uppfattningar om hur ett problem skulle lösas, Gustaf ville lösa det temporärt så att vi kunde genomföra ett test, och Anton ansåg att det borde göras ordentligt. Jag försökte medla och lösa konflikten. Min taktik var att be dem förklara sin åsikt för mig, och på så sätt, via mig, kunna nå en överenskommelse. Jag filmade det också, delvis för dokumentationen av projektarbetet, men också för att de skulle tänka efter lite extra om de visste att de blev filmade. De nådde något av en kompromiss tillslut, och det hela är dokumenterat <a href="https://youtu.be/cvYUlMf6RG4">på youtube</a>.
 </p>
 </div>
 </div>
@@ -536,6 +560,18 @@ Inför inlämning M3 har jag idag gjort följande
 <div class="outline-text-3" id="text-">
 <p>
 Utvärdering och undersökning av kompensation av fel
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2017-05-18</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Gustaf har tagit fram en kompensation utifrån mätdata från testningen. Vi har kunnat konstatera att det uppstår ett fel längs respektive x- och y-axel, som växer med avståndet från origo. När vi testade med Gustafs kompensation överkompenserade den generellt felet. Jag fick härom dagen en intuition om varför det blir så, och idag översatte jag den intuitionen i formler, och lyckades övertyga Gustaf om att det är en sund matematisk modell. Teorin är följande: Gustafs kompensation kompenserar samtidigt för fel i både x- och y-axel, som om det är två oberoende fel. I min modell av felet beror felet snarare enbart på det diagonala avståndet från origo, och det visar sig något olika i x- och y-led. Det innebär att vi istället för att kompensera i båda led ska göra en kompensation där vi viktar om vi ska kompensera enligt data från x-led eller y-led beroende på hur långt vi befinner oss från origo. Formeln för denna modell är följande för xkoordinaten (något förenklad):
+</p>
+
+<p>
+\[x_{kompensation} = \frac{x_{fel} \cdot x + y_{fel} \cdot y}{x + y}, x + y \neq 0 \]
 </p>
 </div>
 </div>

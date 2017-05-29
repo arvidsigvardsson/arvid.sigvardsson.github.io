@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title></title>
-<!-- 2017-05-28 sön 18:25 -->
+<!-- 2017-05-29 mån 01:31 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -197,8 +197,40 @@ $(function() {
 <h2 id="sec-">Reflektion över min insats under projektkurs 2</h2>
 <div class="outline-text-2" id="text-">
 <p>
-Här kommer jag att skriva en reflektion&#x2026;
+Totalt sätt har projektet gått bra för mig och min grupp, vi levererade ett fungerande system med hög noggrannhet. Även de gruppdynamiska aspekterna av arbetet har gått bra, alltså hur vi fungerade som grupp. När jag reflekterar över min egen insats anser jag att följande var positivt:
 </p>
+<ul class="org-ul">
+<li>Utan att försöka vara någon sorts chef tog jag medvetet på mig att hela tiden ha en helhetsbild över vår lösning. Jag hade min "egen" del med koordinatmappningen, men jag såg till att hålla mig ajour med hur samtliga delar av lösningen framskred, och framför allt fokuserade jag på hur de olika delarna satt ihop. Som exempel: jag skrev ingen kod eller kopplade elektronik för Arduino duen eller ESP-kortet vi använde, men jag diskuterade kontinuerligt med de andra om för och nackdelar för olika kommunikationsprotokoll, systemarkitektur och liknande. Även om jag inte programmerade servern var jag mån om att den skulle fungera bra på vårt lan, och att ip-adresser skulle vara konstanta för att slippa programmera om ESPn.
+</li>
+<li>Min största insats var att jag tog hand om koordinatmappningen. När vi började diskutera kameralösningen hade jag en intuition att denna delen skulle vara komplicerad, men att jag skulle kunna bidra till ett gott resultat, en intuition som visade sig stämma.
+</li>
+<li>Jag lyckades ändra inriktning vid ett kritiskt skede. Jag hade en hemmasnickrad ide om hur mappningen skulle gå till, och som jag implementerade. Den verkade fungera, men var inte särskilt noggrann. Envis som man är var jag böjd att hålla kvar vid den och försöka förbättra den. Som tur var valde jag att istället söka efter en bättre lösning och hittade först konceptet homografi, som visade sig vara ungefär det jag själv försökt göra, fast på ett mycket bättre sätt. Homografin gav direkt bättre resultat, och åter igen kunde jag varit nöjd, men jag anade att det var något viktigt jag missat, och fann tillslut bra information om optisk aberation och om hur detta kunde korrigeras i opencv, vilket stort förbättrade våra resultat.
+</li>
+<li>Jag bidrog aktivt till att stämningen i gruppen skulle vara god. Förutom att vara en god kamrat och kollega i allmänhet så införde jag momentet dagens kluring, och utmanade gruppen att lösa olika logiska gåtor. Jag gjorde det inte bara för att det är bra mental träning, utan medvetet för att ta bort fokus från vår uppgift. Detta kan verka dumt eller irrationellt, men jag tror stenhårt på att distraktioner och pauser är viktiga vid problemlösning. Att istället för att vi dag efter dag enbart arbetade och tänkte på projektet hade vi också en annan aktivitet, och det tror jag gjorde gott för stämningen i gruppen och gjorde så att vi blev mindre trötta på varandra.
+</li>
+</ul>
+
+<p>
+Det som jag behöver förbättra till nästa projekt är följande:
+</p>
+<ul class="org-ul">
+<li>Jag måste bli bättre på dokumentation av arbetet. Mitt naturliga sätt att arbeta är att hålla mycket i huvudet och använda min intuition och goda minne för att lösa problem. Det kan fungera bra när man arbetar själv, och det enda kravet är slutresultatet. Men om man arbetar i grupp måste jag bli bättre på att skriva ner mina resultat, tester och liknande. Och i sådana här kurser är inte bara slutresultatet viktigt, utan att även kunna påvisa hur slutresultatet uppnåddes och varför det är bra.
+</li>
+<li>Jag var rätt oengagerad i planering och liknande, till stor del för att jag blir uttråkad av sånt. Men det är en viktig del av arbetsprocessen, och det är orättvist mot mina kollegor om jag lämpar över det arbetet på dem.
+</li>
+<li>Det som var mest problematiskt rent tekniskt för alla grupper i projektet var kommunikationen mellan olika inbyggda system, och vi bytte standard mellan SPI, I2C och UART flera gånger. Jag anade relativt tidigt att detta var ett problem, men jag deltog inte aktivt i arbetet med den delen. I efterhand tycker jag att jag skulle satt mig in i det när jag anade att det var problematiskt. Inte för att just jag nödvändigtvis hade gjort nån skillnad, men att det hade varit bra om fler engagerat sig i den delen.
+</li>
+</ul>
+
+<p>
+Krav och förväntningar på de andra i gruppen:
+</p>
+<ul class="org-ul">
+<li>Vi ställde aldrig formella krav på varandra i gruppen, utöver att vi skulle vara i tid och alla vara engagerade i projektet. Men det var tydligt på ett tidigt stadium att vi förväntade av varandra att vi alla skulle lösa de uppgifter vi tog på oss. Och att om man fick problem skulle man be om hjälp och råd av de andra i gruppen.
+</li>
+<li>Även om ej heller detta var ett formellt krav i gruppen så förväntade jag mig av de övriga och mig själv att vi ständigt skulle hålla varandra informerade och uppdaterade om hur arbetet framskred. Det är lätt hänt i ett grupparbete att någon gräver ner sig i sin egen del, och att det i slutändan visar sig vara något som inte är så intressant för projetktet, vilket borde upptäckts på ett tidigare stadium. I vår grupp höll vi en ständigt pågående dialog om arbetet, och det gjorde att jag aldrig var osäker på om vi arbetade mot rätt mål, och tror jag starkt bidrog till vårt goda resultat.
+</li>
+</ul>
 </div>
 </div>
 </div></div></div>

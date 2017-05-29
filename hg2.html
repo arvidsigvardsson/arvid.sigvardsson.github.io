@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title></title>
-<!-- 2017-05-28 sön 18:27 -->
+<!-- 2017-05-29 mån 02:32 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -195,6 +195,23 @@ $(function() {
 <div class="row"><div class="col-md-12"><h1 class="title"></h1>
 <div id="outline-container-sec-" class="outline-2">
 <h2 id="sec-">Lärandemål huvudgrupp 2</h2>
+<div class="outline-text-2" id="text-">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">2017-05-03</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Idag har jag sökt information om konceptet homografi. Jag gjorde en egensnickrad koordinatmappning till vår opencvlösning, som vid första testet gav okej resultat på en del ställen av banan, men sämre under andra. Jag hittade ett bra namn på det nu, homografi alltså, och därmed blev det lätt att hitta bra källor, t ex <a href="http://www.learnopencv.com/homography-examples-using-opencv-python-c/">denna</a> eller <a href="https://www.cs.ubc.ca/grads/resources/thesis/May09/Dubrofsky_Elan.pdf">denna</a>.
+</p>
+
+<p>
+Problemet är detta: jag vill hitta en transformation, alltså en matris, som mappar om en pixelkoordinat från en digital bild till en koordinat i verkliga världen som är relativ till någon form av bana eller koordinatsystem vi ritat upp på golvet i Niagara. <a href="./Koordinatmappning.html">Min egna metod</a> gör detta, men jag anar att den inte gör det optimalt. Däremot verkar iden om en matris som uppnår detta vara allmänt vedertagen. En av de ovan länkarna är en forskningsartikel med härledning av formeln för en homografimatris, den andra är en praktisk guide om hur detta genomförs i opencv-biblioteket.
+</p>
+
+<p>
+Resultatet av denna research är min implementation i funktionen calibrate i filen coordmapping.py i vårt kodrepo.
+</p>
+</div>
+</div>
 </div>
 </div></div></div>
 </body>
